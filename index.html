@@ -17,10 +17,17 @@
 </head>
 
 <!-- Modal de Vídeo -->
-<div id="videoModal" class="modal hidden">
+<div id="videoModal" class="modal" style="display: flex;">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <video id="welcomeVideo" controls autoplay playsinline>
+    <video 
+      id="welcomeVideo"
+      autoplay
+      muted
+      playsinline
+      loop
+      controlslist="nofullscreen nodownload noremoteplayback"
+    >
       <source src="./assets/estetica_video.mp4" type="video/mp4">
       Seu navegador não suporta vídeo.
     </video>

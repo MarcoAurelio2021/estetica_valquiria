@@ -271,32 +271,36 @@ async function carregarDepoimentos() {
   }
 }
 
+// ================== MODAL DE VÍDEO ==================
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("videoModal");
   const closeBtn = document.querySelector(".close");
   const video = document.getElementById("welcomeVideo");
 
-  // Exibe o modal automaticamente
-  modal.style.display = "flex";
+  if (!modal || !video) return;
 
-  // Tenta iniciar o vídeo (autoplay pode exigir 'muted')
-  video.play().catch(err => {
-    console.warn("Autoplay bloqueado:", err);
+  // Exibe o modal e inicia o vídeo automaticamente (sem som)
+  modal.style.display = "flex";
+  video.play().catch(err => console.warn("Autoplay bloqueado:", err));
+
+  // Permite habilitar o som com um clique
+  const enableSound = () => {
+    video.muted = false;
+    video.play().catch(() => {});
+    window.removeEventListener("click", enableSound);
+  };
+  window.addEventListener("click", enableSound);
+
+  // Fecha o modal ao clicar no X
+  closeBtn.addEventListener("click", fecharModal);
+  // Fecha ao clicar fora do vídeo
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) fecharModal();
   });
 
-  // Fecha ao clicar no "x"
-  closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
+  function fecharModal() {
     video.pause();
     video.currentTime = 0;
-  });
-
-  // Fecha ao clicar fora do vídeo
-  window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      modal.style.display = "none";
-      video.pause();
-      video.currentTime = 0;
-    }
-  });
+    modal.style.display = "none";
+  }
 });
