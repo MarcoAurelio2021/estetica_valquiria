@@ -270,3 +270,24 @@ async function carregarDepoimentos() {
     carousel.innerHTML = "<p>Erro ao carregar depoimentos.</p>";
   }
 }
+
+// Abrir modal automaticamente
+window.onload = function() {
+  var modal = document.getElementById("videoModal");
+  var span = document.getElementsByClassName("close")[0];
+  modal.style.display = "block";
+
+  // Fechar modal ao clicar no X
+  span.onclick = function() {
+    modal.style.display = "none";
+    document.getElementById("welcomeVideo").pause();
+  }
+
+  // Fechar modal ao clicar fora do conteúdo
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+      document.getElementById("welcomeVideo").pause();
+    }
+  }
+}
