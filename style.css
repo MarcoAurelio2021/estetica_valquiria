@@ -300,3 +300,101 @@ footer { background:#290b23; color: var(--cinza-texto); padding:20px 0; text-ali
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 25px rgba(0,0,0,0.35);
 }
+
+
+/* === RESPONSIVIDADE === */
+
+/* Tablets e pequenos desktops */
+@media screen and (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-menu {
+    display: none; /* esconde menu normal */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15px;
+    background: var(--fundo-escuro);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+    align-self: flex-end;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .hero-text h2 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .hero-image {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .servicos-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .carousel .depoimento-card {
+    min-width: 200px;
+  }
+
+  .btn, .btn-contato, .btn-whatsapp, .btn-login.google, .btn-login.apple {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Smartphones */
+@media screen and (max-width: 480px) {
+  .hero-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+
+  .servico-card {
+    padding: 20px;
+  }
+
+  .depoimento-card {
+    min-width: 180px;
+    padding: 15px;
+  }
+
+  .btn, .btn-contato, .btn-whatsapp, .btn-login.google, .btn-login.apple {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  header .container {
+    padding: 0 15px;
+  }
+
+  section {
+    padding: 50px 15px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+}
