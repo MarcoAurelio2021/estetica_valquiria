@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Estética Valquíria Maria</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="./images/android-chrome-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/android-chrome-512x512.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="#" class="logo">Valquíria<span>Maria</span></a>
+    <nav class="nav-menu" aria-label="Menu principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <button class="hamburger" aria-label="Abrir menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<main>
+ <section id="inicio" class="hero">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h2>Beleza e Bem-estar com Taping e Massagens</h2>
+      <p>Transforme seu corpo e sua autoestima com nossos tratamentos personalizados.</p>
+      <a href="#contato" class="btn">Agende sua sessão</a>
+    </div>
+    <div class="hero-image">
+      <img src="./assets/estetica1.jpg" alt="Taping Facial" class="active" loading="lazy">
+      <img src="./assets/estetica2.jpg" alt="Taping Pós Parto" loading="lazy">
+      <img src="./assets/estetica3.jpg" alt="Drenagem" loading="lazy">
+      <img src="./assets/estetica.jpg" alt="Massagem Relaxante" loading="lazy">
+
+      <!-- Setas -->
+      <button class="prev" aria-label="Imagem anterior">&#10094;</button>
+      <button class="next" aria-label="Próxima imagem">&#10095;</button>
+
+      <!-- Indicadores -->
+      <div class="indicators">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section id="sobre" class="sobre container">
+    <h2>Sobre Nós</h2>
+    <p>Na Estética Valquíria Maria, oferecemos tratamentos de alta qualidade, com atenção aos detalhes e cuidado com cada cliente. Nossa missão é promover saúde, bem-estar e autoestima com técnicas especializadas de Taping e massagens.</p>
+  </section>
+
+  <section id="servicos" class="servicos">
+    <div class="container">
+      <h2>Nossos Serviços</h2>
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <i class="fas fa-face-smile-beam"></i>
+          <h3>Taping Facial</h3>
+          <p>Redução de linhas de expressão e rejuvenescimento facial com técnicas seguras e eficazes.</p>
+        </div>
+        <div class="servico-card">
+          <i class="fas fa-baby"></i>
+          <h3>Taping Pós Parto</h3>
+          <p>Auxílio na recuperação pós-parto, modelando o corpo e proporcionando conforto à mãe.</p>
+        </div>
+        <div class="servico-card">
+          <i class="fas fa-hand-holding-water"></i>
+          <h3>Drenagem</h3>
+          <p>Massagem drenante que reduz inchaços e melhora a circulação, promovendo leveza e saúde.</p>
+        </div>
+        <div class="servico-card">
+          <i class="fas fa-spa"></i>
+          <h3>Massagem Relaxante</h3>
+          <p>Relaxamento profundo, alívio do estresse e equilíbrio corporal com técnicas profissionais.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="depoimentos" class="depoimentos container">
+  <h2>Depoimentos</h2>
+
+  <div class="carousel-wrapper">
+    <button class="scroll-btn left" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+    <div id="depoimentos-carousel" class="carousel"></div>
+    <button class="scroll-btn right" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <div class="depoimento-form-container">
+    <h3>Deixe seu depoimento</h3>
+    <div id="user-info" class="user-info">Faça login para deixar um depoimento.</div>
+
+    <div class="depoimento-actions">
+      <button id="btn-login-google" class="btn-login google"><i class="fab fa-google"></i> Entrar com Google</button>
+      <button id="btn-login-apple" class="btn-login apple"><i class="fab fa-apple"></i> Entrar com Apple</button>
+      <button id="btn-logout" class="btn-outline" style="display:none;"><i class="fas fa-sign-out-alt"></i> Sair</button>
+    </div>
+
+    <div id="depoimento-area" style="display:none;">
+      <textarea id="depoimento-text" placeholder="Escreva seu depoimento..." maxlength="300"></textarea>
+
+      <div class="rating">
+        <i class="fa-star fa-regular star" data-value="1"></i>
+        <i class="fa-star fa-regular star" data-value="2"></i>
+        <i class="fa-star fa-regular star" data-value="3"></i>
+        <i class="fa-star fa-regular star" data-value="4"></i>
+        <i class="fa-star fa-regular star" data-value="5"></i>
+      </div>
+
+      <button id="btn-enviar" class="btn">Enviar Depoimento</button>
+    </div>
+  </div>
+</section>
+
+
+  <section id="contato" class="contato">
+    <div class="container">
+      <h2>Entre em Contato</h2>
+      <p>Agende sua sessão ou tire suas dúvidas. Estamos prontos para cuidar de você.</p>
+      <div class="contato-grid">
+        <a href="https://wa.me/5532984125311" target="_blank" class="btn-contato" aria-label="WhatsApp Valquíria Maria">
+          <i class="fab fa-whatsapp"></i>
+          <div>
+            <span>WhatsApp</span>
+            <strong>(32) 9 8412-5311</strong>
+          </div>
+        </a>
+      </div>
+      <div class="localizacao">
+        <p><i class="fas fa-map-marker-alt"></i> Ubá-MG</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Estética Valquíria Maria. Todos os direitos reservados.</p>
+</footer>
+
+<script type="module" src="firebaseConfig.js"></script>
+<script type="module" src="script.js"></script>
+</body>
+</html>
