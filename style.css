@@ -301,42 +301,104 @@ footer { background:#290b23; color: var(--cinza-texto); padding:20px 0; text-ali
   box-shadow: 0 8px 25px rgba(0,0,0,0.35);
 }
 
-/* Estilo do modal */
+/* ===== MODAL ===== */
 .modal {
-  display: none; /* escondido por padrão */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.5s ease;
 }
 
+/* ===== CONTEÚDO ===== */
 .modal-content {
   position: relative;
-  margin: 10% auto;
-  padding: 0;
-  width: 80%;
-  max-width: 700px;
-  background-color: #000;
-  border-radius: 10px;
+  width: 90%;
+  max-width: 900px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  background: #000;
 }
 
+/* ===== MODAL ===== */
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.4s ease;
+}
+
+/* ===== CONTEÚDO ===== */
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 80vh;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== VÍDEO ===== */
 .modal-content video {
   width: 100%;
-  border-radius: 10px;
+  height: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
 }
 
+/* ===== BOTÃO FECHAR ===== */
 .close {
   position: absolute;
   top: 10px;
-  right: 25px;
-  color: #fff;
-  font-size: 35px;
+  right: 15px;
+  color: white;
+  font-size: 32px;
   font-weight: bold;
   cursor: pointer;
+  z-index: 1100;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #ccc;
+}
+
+/* ===== ANIMAÇÃO ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    max-height: 70vh;
+  }
+  .close {
+    top: 5px;
+    right: 10px;
+    font-size: 26px;
+  }
 }
 
 

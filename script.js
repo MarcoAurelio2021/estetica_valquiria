@@ -271,23 +271,34 @@ async function carregarDepoimentos() {
   }
 }
 
-// Abrir modal automaticamente
-window.onload = function() {
-  var modal = document.getElementById("videoModal");
-  var span = document.getElementsByClassName("close")[0];
-  modal.style.display = "block";
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("videoModal");
+  const closeBtn = document.querySelector(".close");
+  const video = document.getElementById("welcomeVideo");
 
-  // Fechar modal ao clicar no X
-  span.onclick = function() {
+  // Exibe o modal automaticamente
+  modal.style.display = "flex";
+
+  // Tenta iniciar o vídeo (autoplay pode exigir 'muted')
+  video.play().catch(err => {
+    console.warn("Autoplay bloqueado:", err);
+  });
+
+  // Fecha ao clicar no "x"
+  closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
-    document.getElementById("welcomeVideo").pause();
-  }
+    video.pause();
+    video.currentTime = 0;
+  });
 
-  // Fechar modal ao clicar fora do conteúdo
-  window.onclick = function(event) {
-    if (event.target == modal) {
+  // Fecha ao clicar fora do vídeo
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
       modal.style.display = "none";
-      document.getElementById("welcomeVideo").pause();
+      video.pause();
+      video.currentTime = 0;
     }
-  }
-}
+  });
+});
+
+
